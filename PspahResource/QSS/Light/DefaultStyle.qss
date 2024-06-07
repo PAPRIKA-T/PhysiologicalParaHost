@@ -1,0 +1,148 @@
+QWidget#PspahWaveSetWidget
+{
+   border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+QWidget#SerialPortSettingsWidget
+{
+    border-right: 1px solid rgb(200, 200, 200);
+}
+
+QWidget#PspahSetWidget
+{
+    border-left: 1px solid rgb(200, 200, 200);
+}
+
+QLabel
+{
+    /*background-color:red;*/
+    color:rgb(80, 80, 80);
+    font-size: 16px;
+    font-family: "Microsoft YaHei";
+}
+
+QLabel#title_label
+{
+    color:rgb(10, 10, 10);
+    font-size: 20px;
+}
+
+QLabel#Lead_Label
+{
+    color:rgb(80, 80, 80);
+    font-size: 20px;
+}
+
+/****************************ECG*****************************/
+QLabel#ECG_Title
+{
+    color:#1dc320;
+    font-size: 40px;
+}
+
+QLabel#ECG_Label
+{
+    color:rgb(80, 80, 80);
+    font-size: 50px;
+}
+/****************************SpO2*****************************/
+QLabel#SpO2_Title
+{
+    color:#e132e7;
+    font-size: 40px;
+}
+
+QLabel#SpO2_Label
+{
+    color:rgb(80, 80, 80);
+    font-size: 50px;
+}
+/****************************Temp*****************************/
+QLabel#Temp_Title
+{
+    color:#ef8225;
+    font-size: 40px;
+}
+
+QLabel#Temp_Label
+{
+    color:rgb(80, 80, 80);
+    font-size: 50px;
+}
+/****************************Btn Style*****************************/
+QPushButton#PspahGenericButton
+{
+    color:rgb(200, 200, 200);
+    font-family:MicrosoftYaHei;
+    font-size:13px;
+    background-color:transparent;
+    border-radius: 8px; 
+}
+QPushButton#PspahGenericButton:hover
+{
+    color:rgb(240, 240, 240);
+    background-color:rgb(220, 220, 220);
+}
+QPushButton#PspahGenericButton:pressed
+{
+    color:rgb(240, 240, 240);
+    background-color:rgb(210, 210, 210);
+}
+QPushButton#PspahGenericButton:checked
+{
+    background-color:rgb(200, 200, 200);
+}
+QPushButton#PspahGenericButton::menu-indicator
+{
+    /* 该代码用于设计隐藏三角形箭头 */
+    width:0px;
+}
+/****************************CheckBox Style*****************************/
+/*******************QCheckBox*********************/
+QCheckBox::indicator
+{/*选择框尺寸*/
+    border: 0px;
+	width: 18px;
+	height: 18px;
+}
+
+QCheckBox::indicator:checked
+{
+	image: url(:/PspahResource/ICON/CheckBox.png);
+}
+
+QCheckBox::indicator:unchecked
+{
+	image: url(:/PspahResource/ICON/UnCheckBox.png);
+}
+
+/*******************QComboBox*********************/
+QComboBox
+{   
+    color:#000000;
+    background-color:transparent;
+    height:25;
+    border: none;
+    font-size:13px;
+    border-radius: 6px;
+}
+
+QComboBox::drop-down {
+      subcontrol-origin: padding;
+      border:none;
+  }
+
+/* 下拉箭头样式 */
+QComboBox::down-arrow 
+{
+    width: 15px; /* 下拉箭头的宽度（建议与下拉框drop-down的宽度一致） */
+    background: transparent; /* 下拉箭头的的背景色 */
+    padding: 0px 0px 0px 0px; /* 上内边距、右内边距、下内边距、左内边距 */
+ 
+    image: url(:/PspahResource/ICON/left_arrow.svg);
+}
+/* 点击下拉箭头 */
+QComboBox::down-arrow:on 
+{ 
+    image: url(:/PspahResource/ICON/down_arrow.svg); /* 显示下拉箭头 */
+}

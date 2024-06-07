@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>PspahResource/ICON/HOST_ICON.svg</file>
+        <file>PspahResource/QSS/Light/DefaultStyle.qss</file>
+        <file>PspahResource/ICON/Rubber.svg</file>
+        <file>PspahResource/ICON/CheckBox.png</file>
+        <file>PspahResource/ICON/UnCheckBox.png</file>
+        <file>PspahResource/ICON/GreenPoint.png</file>
+        <file>PspahResource/ICON/RedPoint.png</file>
+        <file>PspahResource/ICON/Save.svg</file>
+        <file>PspahResource/ICON/Reset.svg</file>
+        <file>PspahResource/ICON/down_arrow.svg</file>
+        <file>PspahResource/ICON/left_arrow.svg</file>
+    </qresource>
+</RCC>

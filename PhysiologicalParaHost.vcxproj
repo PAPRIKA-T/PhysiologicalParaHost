@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0B9BDA6D-F015-421E-8423-39CF2627F3DE}</ProjectGuid>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
+    <QtInstall>6.7.1_msvc2019_64</QtInstall>
+    <QtModules>core;gui;widgets;serialport;charts</QtModules>
+    <QtBuildConfig>debug</QtBuildConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
+    <QtInstall>6.7.1_msvc2019_64</QtInstall>
+    <QtModules>core;gui;serialport;charts</QtModules>
+    <QtBuildConfig>release</QtBuildConfig>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <IncludePath>C:\Qt\6.7.1\msvc2019_64\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 /Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Core\PasphGenericOperation.cpp" />
+    <ClCompile Include="Model\EcgPCTPackHandler.cpp" />
+    <ClCompile Include="Model\PCTPackDistributor.cpp" />
+    <ClCompile Include="Core\PCTPackUnpack.cpp" />
+    <ClCompile Include="GUI\ECGParaWidget.cpp" />
+    <ClCompile Include="GUI\CustomTabStyle.cpp" />
+    <ClCompile Include="GUI\PspahMainWindow.cpp" />
+    <ClCompile Include="GUI\PspahChartCallOut.cpp" />
+    <ClCompile Include="GUI\PspahChartView.cpp" />
+    <ClCompile Include="GUI\PspahGenericChartWidget.cpp" />
+    <ClCompile Include="GUI\PspahGenericButton.cpp" />
+    <ClCompile Include="GUI\PspahToolButton.cpp" />
+    <ClCompile Include="GUI\TempParaWidget.cpp" />
+    <ClCompile Include="GUI\ToolTipWindow.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="GUI\SerialPortSettingsWidget.cpp" />
+    <ClCompile Include="Model\DynamicTaskModel.cpp" />
+    <ClCompile Include="Model\GenericPCTPackHandler.cpp" />
+    <ClCompile Include="Model\SerialPortModel.cpp" />
+    <ClCompile Include="Model\SerialPortScanner.cpp" />
+    <ClCompile Include="Model\SpO2PCTPackHandler.cpp" />
+    <ClCompile Include="Model\StyleSheetConfigModel.cpp" />
+    <ClCompile Include="GUI\PspahSetWidget.cpp" />
+    <ClCompile Include="GUI\SpO2ParaWidget.cpp" />
+    <ClCompile Include="GUI\SerialPortInfoWidget.cpp" />
+    <ClCompile Include="GUI\PspahWaveSetWidget.cpp" />
+    <ClCompile Include="Model\TempPCTPackHandler.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="GUI\PspahMainWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Model\TempPCTPackHandler.h" />
+    <QtMoc Include="GUI\CustomTabStyle.h" />
+    <ClInclude Include="Core\DataType.h" />
+    <ClInclude Include="Core\PasphGenericOperation.h" />
+    <QtMoc Include="GUI\ToolTipWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="PspahResource.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="GUI\SerialPortSettingsWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PspahResource\QSS\Light\DefaultStyle.qss" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="GUI\PspahWaveSetWidget.h" />
+    <QtMoc Include="GUI\SerialPortInfoWidget.h" />
+    <QtMoc Include="GUI\SpO2ParaWidget.h" />
+    <QtMoc Include="GUI\ECGParaWidget.h" />
+    <ClInclude Include="Core\PasphMacros.h" />
+    <QtMoc Include="Model\SerialPortScanner.h" />
+    <QtMoc Include="Model\SerialPortModel.h" />
+    <QtMoc Include="GUI\TempParaWidget.h" />
+    <QtMoc Include="GUI\PspahGenericChartWidget.h" />
+    <QtMoc Include="GUI\PspahChartView.h" />
+    <QtMoc Include="Model\PCTPackDistributor.h" />
+    <ClInclude Include="Core\PCTPackUnpack.h" />
+    <ClInclude Include="GUI\PspahChartCallOut.h" />
+    <ClInclude Include="GUI\PspahGenericButton.h" />
+    <QtMoc Include="GUI\PspahToolButton.h" />
+    <QtMoc Include="Model\DynamicTaskModel.h" />
+    <QtMoc Include="Model\GenericPCTPackHandler.h" />
+    <QtMoc Include="Model\SpO2PCTPackHandler.h" />
+    <QtMoc Include="Model\EcgPCTPackHandler.h" />
+    <ClInclude Include="Model\StyleSheetConfigModel.h" />
+    <QtMoc Include="GUI\PspahSetWidget.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
