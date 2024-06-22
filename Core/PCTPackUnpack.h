@@ -20,9 +20,6 @@ typedef enum
 	MODULE_TEMP = 0x12,  //体温信息
 	MODULE_SPO2 = 0x13,  //血氧信息
 	MODULE_NBP = 0x14,  //无创血压信息
-
-	MODULE_WAVE = 0x71,  //wave模块信息
-
 	MAX_MODULE_ID = 0x80
 }EnumPCTPackID;
 

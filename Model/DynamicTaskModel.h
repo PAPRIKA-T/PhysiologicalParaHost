@@ -5,7 +5,7 @@ class QTimer;
 #include "GenericPCTPackHandler.h"
 
 #define BLANK_WINDOW_WIDTH 10
-#define DEFAULT_DATA_SIZE 1000
+#define DEFAULT_DATA_SIZE 3000
 
 #define AXIS_MIN_X 0
 #define AXIS_MAX_Y 1000

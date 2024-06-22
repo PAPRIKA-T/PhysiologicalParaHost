@@ -38,7 +38,6 @@ void TempParaWidget::connectPCTDistributorSignals(PCTPackDistributor* d)
 
 void TempParaWidget::onSerialPortOpened()
 {
-	//qDebug() << "TempPara Thread:" << thread();
 	para_status = TempParaStatus::RUN;
 }
 
@@ -99,7 +98,7 @@ void TempParaWidget::resetTempLabel()
 	Temp_value_label->setText("-- ℃");
 	lead_status_label->setText("STOP");
 	lead_status_label->setStyleSheet("QLabel { color : red; }");
-	lead_status = TempLeadStatus::NONE;
+	lead_status = TempLeadStatus::LeadOff;
 	para_status = TempParaStatus::STOP;
 }
 

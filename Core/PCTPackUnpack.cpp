@@ -1,10 +1,10 @@
 ﻿#include "PCTPackUnpack.h"
 #include <QDebug>
 //以下四个参数在打包和解包的时候使用
-static StructPCTPackType s_ptPack;   //数据包，1字节模块ID，1字节数据头，1字节二级ID，6字节数据，1字节校验和
-static u8       s_iPackLen;       //数据包长度，用来判断数据长度是否为10，不为10为错误包
-static u8       s_iGotPackId;     //获取到ID的标志
-static u8       s_iRestByteNum;   //剩余字节数
+static StructPCTPackType s_ptPack{};   //数据包，1字节模块ID，1字节数据头，1字节二级ID，6字节数据，1字节校验和
+static u8       s_iPackLen{};       //数据包长度，用来判断数据长度是否为10，不为10为错误包
+static u8       s_iGotPackId{};     //获取到ID的标志
+static u8       s_iRestByteNum{};   //剩余字节数
 
 /*********************************************************************************************************
 *                                              内部函数声明
@@ -118,7 +118,7 @@ void  InitPackUnpack(void)
     s_ptPack.packHead = 0; //s_ptPack的数据头默认为0
     s_ptPack.packSecondId = 0; //s_ptPack的二级ID默认为0
 
-    for (i = 0; i < 7; i++)
+    for (i = 0; i < 6; i++)
     {
         s_ptPack.arrData[i] = 0; //s_ptPack的6个数据默认为0
     }
@@ -167,10 +167,9 @@ u8  UnPackData(u8 data)
     u8 findPack = 0;
     u8* pBuf;
     pBuf = (u8*)&s_ptPack;      //pBuf指向s_ptPack，即pBuf和s_ptPack的值是同一个
-
     if (s_iGotPackId)            //已经接收到包ID
     {
-        if (0x80 <= data)          //非模块ID必须大于或等于0X80
+        if (MAX_MODULE_ID <= data)          //非模块ID必须大于或等于0X80
         {
             //数据包中的非模块ID从第二个字节开始存储，因为第一个字节是模块ID
             pBuf[s_iPackLen] = data;                 //赋给pBuf[s_iPackLen]，也相当于赋给s_ptPack中对应的成员
@@ -188,15 +187,14 @@ u8  UnPackData(u8 data)
             s_iGotPackId = 0;           //表示出错
         }
     }
-    else if (data < 0x80)          //当前的数据为包ID
+    else if (data < MAX_MODULE_ID)          //当前的数据为包ID
     {
         s_iRestByteNum = 9;          //剩余的包长，即打包好的包长减去1
         s_iPackLen = 1;          //尚未接收到包ID即表示包长为1
         s_ptPack.packModuleId = data; //数据包的ID
         s_iGotPackId = 1;          //表示已经接收到包ID  
     }
-
-    return findPack;                //如果获取到完整的数据包，并解包成功，findPack为1，否则为0
+    return findPack;  //如果获取到完整的数据包，并解包成功，findPack为1，否则为0
 }
 
 /*********************************************************************************************************

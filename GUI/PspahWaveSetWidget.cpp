@@ -51,13 +51,13 @@ void PspahWaveSetWidget::initLayout()
 	pasph_SpO2RED_chart_widget->setObjectName("SpO2ChartWidgetRED");
 	pasph_SpO2RED_chart_widget->getPspahChartView()->getDynamicTaskModel()->setObjectName("SpO2ChartWidgetRED");
 	pasph_SpO2RED_chart_widget->setSeriesColor(SPO2_SERIES_COLOR_RED);
-	pasph_SpO2RED_chart_widget->setTimerInterval(50);
+	pasph_SpO2RED_chart_widget->setTimerInterval(20);
 
 	pasph_SpO2IR_chart_widget = new PspahGenericChartWidget(this);
 	pasph_SpO2IR_chart_widget->setObjectName("SpO2ChartWidgetIR");
 	pasph_SpO2IR_chart_widget->setSeriesColor(SPO2_SERIES_COLOR_IR);
 	pasph_SpO2IR_chart_widget->getPspahChartView()->getDynamicTaskModel()->setObjectName("SpO2ChartWidgetIR");
-	pasph_SpO2IR_chart_widget->setTimerInterval(50);
+	pasph_SpO2IR_chart_widget->setTimerInterval(20);
 	SpO2_layout->addWidget(pasph_SpO2RED_chart_widget);
 	SpO2_layout->addWidget(pasph_SpO2IR_chart_widget);
 

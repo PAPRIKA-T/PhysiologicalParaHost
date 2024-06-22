@@ -88,7 +88,7 @@ void SpO2ParaWidget::resetSpO2Label()
 	lead_status_label->setText("STOP");
 	lead_status_label->setStyleSheet("QLabel { color : red; }");
 	para_status = SpO2ParaStatus::STOP;
-	lead_status = SpO2LeadStatus::NONE;
+	lead_status = SpO2LeadStatus::LeadOff;
 }
 
 void SpO2ParaWidget::connectPCTDistributorSignals(PCTPackDistributor* d)
